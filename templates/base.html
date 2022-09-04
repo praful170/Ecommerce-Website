@@ -1,0 +1,104 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> {% block title  %}Fitness Factory{% endblock %} </title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+  <style>
+
+  .card {
+    height: 350px;
+  }
+
+  .card-product {
+    content: "";
+    display: table;
+    clear: both;
+    /* visibility: hidden; */
+  }
+
+  .card-product .price-new .card-product .price{
+    margin-right: 5px;
+  }
+
+  .card-product .price-old{
+    color: #999;
+  }
+
+  .card-product .img-wrap {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+    position: relative;
+    height: 220px;
+    text-align: center;
+  }
+
+  .card-product .img-wrap img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+  }
+
+  .card-product .info-wrap {
+    overflow: hidden;
+    padding: 15px;
+    border-top: 1px solid #eee;
+  }
+
+   .card-product .action-wrap {
+     padding-top: 4px;
+     margin-top: 4px;
+   }
+
+   .card-product .bottom-wrap {
+    padding: 15px;
+    border-top: 1px solid #eee;
+   }
+
+   .card-product .title {
+     margin-top: 0px;
+   }
+  </style>
+
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <div class="container" style="padding-top:20px">
+      <div class="messages container mt-2">
+        {% if messages %}
+          {% for message in messages %}
+          <div {% if message.tags %} class="alert alert-{{ message.tags }} {% endif %}" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-level="Close">
+              <span aria-hidden="true"> &times; </span>
+            </button>
+          </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+
+      {% block body_block %}
+
+      {% endblock %}
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
